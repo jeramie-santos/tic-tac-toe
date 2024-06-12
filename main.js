@@ -1,11 +1,3 @@
-function createPlayer (name, mark) {
-    const getMark = () => `Player ${name}'s mark ${mark}`;
-    return {name, mark, getMark};
-}
-
-const Jeramie = createPlayer("Jeramie", "X");
-const Max = createPlayer("Max", "O");
-
 function Gameboard() {
     const rows = 3;
     const columns = 3;
@@ -18,21 +10,33 @@ function Gameboard() {
         }
     }
     
+    const getBoard = () => board;
     const logBoard = () => console.log(board);
-    const placeMark = function(row,column) {
+    const placeMark = function(row, column, mark) {
         board[row][column] = "X";
         logBoard();
     }
     
 
-    return {placeMark, logBoard};
+    return {placeMark, logBoard, getBoard};
 }
 
-const player = Gameboard();
+function GameController() {
+    const players = [
+        {
+            playerName: "Jeramie",
+            mark: "X",
+        },
+        {
+            playerName: "Max",
+            mark: "O",
+        }
+    ];
 
-player.placeMark(0, 0);
+    gameBoard = Gameboard();
 
-player.placeMark(1, 1);
+    gameBoard.placeMark(0, 0,players[0].mark);
+}
 
-player.placeMark(2, 2);
+const game = GameController();
 
