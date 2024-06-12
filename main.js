@@ -35,6 +35,8 @@ function GameController() {
 
     let playerActive = players[0];
 
+    const printPlayer = () => `Player ${playerActive.playerName}'s turn`;
+
 
 
     gameBoard = Gameboard();
@@ -42,16 +44,19 @@ function GameController() {
     
 
     const switchPlayer = function() {
-        return playerActive.mark == "X" ? playerActive = players[1] : playerActive = players[0];
+        playerActive.mark == "X" ? playerActive = players[1] : playerActive = players[0];
     }
 
     const playRound = function(a, b) {
-        console.log(switchPlayer());
+        switchPlayer();
+        console.log(printPlayer());
         gameBoard.placeMark(a, b, playerActive.mark);
     }
 
-    return {playRound};
+    return {playRound, printPlayer};
 }
 
 const game = GameController();
+
+console.log(game.printPlayer());
 
