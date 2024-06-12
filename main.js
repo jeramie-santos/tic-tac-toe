@@ -11,9 +11,9 @@ function Gameboard() {
     }
     
     const getBoard = () => board;
-    const logBoard = () => console.log(board);
+    const logBoard = () => console.table(board);
     const placeMark = function(row, column, mark) {
-        board[row][column] = "X";
+        board[row][column] = mark;
         logBoard();
     }
     
@@ -33,9 +33,24 @@ function GameController() {
         }
     ];
 
+    let playerActive = players[0];
+
+
+
     gameBoard = Gameboard();
 
-    gameBoard.placeMark(0, 0,players[0].mark);
+    
+
+    const switchPlayer = function() {
+        return playerActive.mark == "X" ? playerActive = players[1] : playerActive = players[0];
+    }
+
+    const playRound = function(a, b) {
+        console.log(switchPlayer());
+        gameBoard.placeMark(a, b, playerActive.mark);
+    }
+
+    return {playRound};
 }
 
 const game = GameController();
