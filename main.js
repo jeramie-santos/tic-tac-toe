@@ -14,9 +14,25 @@ function Gameboard() {
     for (let i = 0; i< rows; i++){
         board[i] = [];
         for (let j = 0; j < columns; j++){
-            board[i].push("0");
+            board[i].push("");
         }
     }
+    
+    const logBoard = () => console.log(board);
+    const placeMark = function(row,column) {
+        board[row][column] = "X";
+        logBoard();
+    }
+    
+
+    return {placeMark, logBoard};
 }
 
-Gameboard();
+const player = Gameboard();
+
+player.placeMark(0, 0);
+
+player.placeMark(1, 1);
+
+player.placeMark(2, 2);
+
