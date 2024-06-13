@@ -1,11 +1,9 @@
 function Gameboard() {
-    const rows = 3;
-    const columns = 3;
     let board = [];
 
-    for (let i = 0; i< rows; i++){
+    for (let i = 0; i< 3; i++){
         board[i] = [];
-        for (let j = 0; j < columns; j++){
+        for (let j = 0; j < 3; j++){
             board[i].push("");
         }
     }
@@ -50,9 +48,15 @@ function GameController() {
     }
 
     const playRound = function(a, b) {
-        gameBoard.placeMark(a, b, playerActive.mark);
-        switchPlayer();
-        console.log(printPlayer());
+        let updateBoard = gameBoard.getBoard();
+        if (updateBoard[a][b] == "") {
+            gameBoard.placeMark(a, b, playerActive.mark);
+            switchPlayer();
+            console.log(printPlayer());
+        } else {
+            console.log("Cannot place a mark!");
+        }
+        
     }
 
     return {playRound, printPlayer, logBoard};
@@ -61,4 +65,5 @@ function GameController() {
 const game = GameController();
 
 console.log(game.printPlayer());
+console.log(game.logBoard());
 
