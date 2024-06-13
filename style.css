@@ -8,3 +8,11 @@ html {
     line-height: 1.5;
     font-size: 16px;
 }
+
+td {
+    border: 1px solid;
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+}
