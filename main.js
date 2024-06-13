@@ -41,6 +41,8 @@ function GameController() {
 
     gameBoard = Gameboard();
 
+    const logBoard = () => gameBoard.logBoard();
+
     
 
     const switchPlayer = function() {
@@ -48,12 +50,12 @@ function GameController() {
     }
 
     const playRound = function(a, b) {
+        gameBoard.placeMark(a, b, playerActive.mark);
         switchPlayer();
         console.log(printPlayer());
-        gameBoard.placeMark(a, b, playerActive.mark);
     }
 
-    return {playRound, printPlayer};
+    return {playRound, printPlayer, logBoard};
 }
 
 const game = GameController();
