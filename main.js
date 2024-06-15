@@ -16,19 +16,19 @@ function Gameboard() {
     const logBoard = () => {
         table.innerHTML = `
             <tr>
-                <td>${board[0][0]}</td>
-                <td>${board[0][1]}</td>
-                <td>${board[0][2]}</td>
+                <td onclick="pindot(0, 0)">${board[0][0]}</td>
+                <td onclick="pindot(0, 1)">${board[0][1]}</td>
+                <td onclick="pindot(0, 2)">${board[0][2]}</td>
             </tr>
             <tr>
-                <td>${board[1][0]}</td>
-                <td>${board[1][1]}</td>
-                <td>${board[1][2]}</td>
+                <td onclick="pindot(1, 0)">${board[1][0]}</td>
+                <td onclick="pindot(1, 1)">${board[1][1]}</td>
+                <td onclick="pindot(1, 2)">${board[1][2]}</td>
             </tr>
             <tr>
-                <td>${board[2][0]}</td>
-                <td>${board[2][1]}</td>
-                <td>${board[2][2]}</td>
+                <td onclick="pindot(2, 0)">${board[2][0]}</td>
+                <td onclick="pindot(2, 1)">${board[2][1]}</td>
+                <td onclick="pindot(2, 2)">${board[2][2]}</td>
             </tr>
         `;
     };
@@ -93,3 +93,6 @@ h1.textContent = game.printPlayer();
 h2.textContent = game.printMark();
 game.logBoard();
 
+function pindot(a, b) {
+    game.playRound(a, b);
+}
