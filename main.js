@@ -1,6 +1,7 @@
 const h1 = document.querySelector("h1");
 const h2 = document.querySelector("h2");
 const table = document.querySelector("table");
+const h3 = document.querySelector("h3");
 
 function Gameboard() {
     let board = [];
@@ -78,8 +79,9 @@ function GameController() {
             switchPlayer();
             h1.textContent = printPlayer();
             h2.textContent = printMark();
+            h3.textContent = "";
         } else {
-            console.log("Cannot place a mark!");
+            h3.textContent = "Cannot place mark!";
         }
         
     }
